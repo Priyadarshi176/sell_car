@@ -15,8 +15,8 @@ import { CalendarDays, Gauge, Wrench, MapPin, User, Mail, MessageSquare } from "
 
 export default function ListingDetailPage({ params }: { params: { id: string } }) {
   const { toast } = useToast();
-  // The 'params' object is accessed directly here.
-  const car = mockCars.find((c) => c.id === parseInt(params.id));
+  const id = params.id;
+  const car = mockCars.find((c) => c.id === parseInt(id));
 
   if (!car) {
     notFound();
