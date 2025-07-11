@@ -49,7 +49,7 @@ export default function ListCarPage() {
       mileage: undefined,
       condition: "good",
       zipCode: "",
-      price: undefined,
+      price: "" as any, // Initialize as empty string to avoid uncontrolled input error
       description: "",
     },
   });
