@@ -1,9 +1,8 @@
 "use client";
 
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import Image from "next/image";
 import { mockCars } from "@/lib/data";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Separator } from "@/components/ui/separator";
@@ -13,9 +12,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { CalendarDays, Gauge, Wrench, MapPin, User, Mail, MessageSquare } from "lucide-react";
 
-export default function ListingDetailPage({ params }: { params: { id: string } }) {
+export default function ListingDetailPage() {
   const { toast } = useToast();
-  const id = params.id;
+  const params = useParams();
+  const id = params.id as string;
   const car = mockCars.find((c) => c.id === parseInt(id));
 
   if (!car) {
